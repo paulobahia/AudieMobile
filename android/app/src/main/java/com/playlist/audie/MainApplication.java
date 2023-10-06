@@ -1,4 +1,4 @@
-package com.audie;
+package com.playlist.audie;
 
 import android.app.Application;
 import android.content.res.Configuration;
