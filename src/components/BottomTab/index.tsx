@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export function BottomTab(props: BottomTabBarProps) {
     const { navigation, state } = props
-    const imageURL = 'https://1.bp.blogspot.com/-cae5mWLe4Jg/VazohfjE8BI/AAAAAAAA21o/3c6VBxw07B8/s1600/daniblackdiluviocapa.png'
+    const imageURL = 'https://upload.wikimedia.org/wikipedia/pt/d/d6/Capa_de_Havana.png'
 
     const [isShowPlayer, setShowPlayer] = useState(false);
 
@@ -39,21 +39,25 @@ export function BottomTab(props: BottomTabBarProps) {
     return (
         <>
             <Animated.View style={{ transform: [{ translateY: translateValue }] }} className="absolute border-gray-100/50 bg-white bottom-2 left-3 right-3 rounded-2xl h-36 shadow-2xl shadow-slate-500">
-                <TouchableOpacity onPress={() => handlerPlayer()} activeOpacity={1} className="w-full h-20 px-3 mb-1 flex flex-row items-center justify-between">
-                    <View className="flex flex-row items-center">
-                        <View >
-                            <Image className="w-12 h-12 rounded-md transition-all ease-in" source={{ uri: imageURL }} />
-                        </View>
-                        <View className="ml-2">
-                            <Text className="text-sm font-medium">Dani Black - Dilúvio (Oficial)</Text>
-                            <Text className="text-xs font-normal text-gray-500">Música</Text>
+                <TouchableOpacity onPress={() => handlerPlayer()} activeOpacity={1} className="w-full h-20 px-3 mb-1">
+                    <View className="relative">
+                        <View className="absolute w-1/3 -top-3 shadow-2xl shadow-black">
+                            <Image className="w-20 h-20 rounded-md transition-all ease-in" source={{ uri: imageURL }} />
                         </View>
                     </View>
-                    <TouchableOpacity>
-                        <PlayCircle size="35" color="#0009" variant="Bulk" />
-                    </TouchableOpacity>
+                    <View className="w-full justify-center items-end h-full flex">
+                        <View className="w-3/4 mb-4 flex flex-row items-center">
+                            <View className="mr-5">
+                                <Text className="text-base font-medium">Havana</Text>
+                                <Text className="text-xs font-normal text-neutral-400">Camila Cabello - Havana (Official Audio)</Text>
+                            </View>
+                            <TouchableOpacity className="mt-3">
+                                <PlayCircle size="35" color="#0009" variant="Bulk" />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
                 </TouchableOpacity>
-                <View className="flex-1 border-t border-gray-100/50 justify-around h-16 flex-row items-center">
+                <View className="flex-1 border-t border-gray-100/50 justify-around flex-row items-center">
                     {state.routes.map((route, index) => {
                         const isCurrentRoute = state.index === index;
                         return (
